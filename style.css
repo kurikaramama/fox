@@ -1,0 +1,111 @@
+body{
+    margin:0px;
+    font-family:"微軟正黑體","新細明體";
+}
+.header{
+    font-size: 40px;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    background-color: #223344;
+    padding: 30px 0px;
+}
+/*CSS Media Query*/
+@media (max-width:500px){
+    /*螢幕尺寸小於 500 像素的時候，額外套用這個區塊的設定*/
+    .header{
+        font-size: 30px;
+    }
+}
+
+.nav{
+    font-size: 24px;
+    text-align: center;
+    height:50px;
+    line-height: 50px; /*區塊高度等於行高就可以置中*/
+}
+/* 階層式選擇器 */
+.nav>.item{
+    padding: 20px;
+    cursor: pointer; /*調整游標形狀*/
+}
+@media (max-width:500px){
+    .nav{
+        white-space: nowrap; /*讓物品不會往下換行*/
+        overflow-x: auto; /*內容有飛出去才會出現卷軸*/
+    }
+    /*
+    .nav{
+        font-size: 20px;
+    }
+    .nav>.item{
+        padding: 15px 0px; 
+    }
+    */
+}
+/*虛擬選擇器，和其他選擇器搭配*/
+.nav>.item:hover{
+    background-color: #dddddd;
+}
+
+.visual{
+    height:400px;line-height: 400px;
+    background-image:url(image/visual02.jpg); /*設定背景圖*/
+    background-position: center center;
+    background-size: cover; /*保持圖片比例，盡可能張滿*/
+
+    font-size: 50px;
+    text-align: center;
+    color: white;
+    text-shadow: 0px 0px 10px #445566;
+}
+
+/*CSS排版工具: flexbox*/
+.content{
+    display:flex; /*在容器的身上做區塊的左右並排*/
+    justify-content: center; /*把方框們置中，左右對齊*/
+    align-items: center; /*垂直對齊*/
+
+    padding: 40px 0px;
+}
+.content>.left{
+    width: 500px;
+    text-align: center;
+}
+.content>.right{
+    width: 400px;
+    font-size: 24px;
+    line-height: 40px;
+    text-align: center;
+}
+.content>.left>.head{
+    width: 400px;height: 400px;
+    object-fit: cover;
+    object-position: bottom center;
+    border-radius: 50%;
+}
+@media (max-width:500px){
+    .content{
+        flex-wrap: wrap; /*讓flexbox中的區塊可以往下掉*/
+    }
+    .content>.left{
+        width:90%;
+    }
+    .content>.left>.head{
+        width: 90%; 
+    }
+    .content>.right{
+        width:90%;
+    }
+}
+
+.content>.right>.title{
+    font-weight: bold;
+}
+/* footer */
+.footer{
+    background-color: #223344;
+    color: white;font-size: 24px;
+    text-align: center;
+    padding: 40px 0px;
+}
